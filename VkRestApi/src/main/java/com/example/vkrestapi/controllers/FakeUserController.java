@@ -7,8 +7,11 @@ import com.example.vkrestapi.services.AlbumService;
 import com.example.vkrestapi.services.FakeUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,19 +31,19 @@ public class FakeUserController {
 
   @Audit
   @Cacheable("user-put")
-  @GetMapping("/{id}")
+  @PutMapping("/{id}")
   public void put(@PathVariable Integer id, @RequestParam FakeUser user){
     service.put(id, user);
   }
   @Audit
   @Cacheable("user-post")
-  @GetMapping("/{id}")
+  @PostMapping("/{id}")
   public void post(@RequestParam FakeUser user){
     service.post(user);
   }
   @Audit
   @Cacheable("user-delete")
-  @GetMapping("/{id}")
+  @DeleteMapping("/{id}")
   public void delete(@PathVariable Integer id){
     service.delete(id);
   }
