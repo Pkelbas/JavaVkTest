@@ -1,14 +1,19 @@
 spring:
   datasource:
-    username: sa
-    password:
-    url: jdbc:h2:/Users/pavel/IdeaProjects/JavaVkTest/VkRestApi/src/main/resources/data
-    driver-class-name: org.h2.Driver
+    username: main_owner
+    password: Hka9pA2Nozeu
+    url: jdbc:postgresql://ep-super-smoke-a2zzrmgn.eu-central-1.aws.neon.tech/main?sslmode=require
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: create-drop
-    database: h2
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
     properties:
       hibernate:
         format_sql: true
+
+json:
+  placeholder:
+    path: https://jsonplaceholder.typicode.com/
